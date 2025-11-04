@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <title data-i18n="cwiczenia.title">MusEduLab - Ćwiczenia</title>
+    <meta name="theme-color" content=" #92a8d1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="expires" content="0">
+    <meta http-equiv="cache-control" content="no-store, no-cache, must-revalidate">
+    <meta http-equiv="cache-control" content="post-check=0, pre-check=0">
+    <meta http-equiv="pragma" content="no-cache">
+    <meta charset="utf-8">
+    <link rel="icon" type="image/x-icon" href="assets/icons/favicon.ico">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.1/css/all.css">
+    <link rel="stylesheet" href="css/app/cwiczenia.css?version=2">
+</head>
+
+<body data-theme="light">
+
+    <div class="global-controls">
+    <a href="index.html" id="home-btn" title="Strona główna">
+            <i class="fa-solid fa-house"></i>
+        </a>
+        <button id="theme-toggle-btn" class="theme-toggle" type="button">
+            <i class="fa-solid fa-sun"></i>
+            <i class="fa-solid fa-moon"></i>
+        </button>
+    </div>
+    <main>
+        <div class="blob blob1"></div>
+        <div class="blob blob2"></div>
+
+        <section class="section section-1">
+            <div class="glass">
+
+                <div class="menu-cwiczen" id="game-menu" style="display: none;">
+                    <div id="ilosc-dobrze" class="score-counter good">
+                        <span class="score-label" data-i18n="cwiczenia.score.correct">Dobrze:</span><span class="score-value">0</span>
+                    </div>
+                    <div id="ilosc-zle" class="score-counter bad">
+                        <span class="score-label" data-i18n="cwiczenia.score.incorrect">Źle:</span><span class="score-value">0</span>
+                    </div>
+                    <button class="menu-button" id="powtorz-btn">
+                        <i class="fa-solid fa-repeat"></i> <span class="button-label" data-i18n="common.buttons.repeat">Powtórz</span>
+                    </button>
+
+                    <div class="menu-spacer"></div>
+
+                    </div>
+                <div class="zakladka" id="steps-container">
+
+                    <div class="game-step" id="step-settings" style="display:none;">
+                        <h2 data-i18n="cwiczenia.settings.heading">Ustawienia</h2>
+                        <br>
+                        <h4>
+                            <span data-i18n="cwiczenia.settings.duration">Tempo:</span>
+                            <div class="select-wrapper">
+                                <select id="czastrwania">
+                                    <option value="500" data-i18n="cwiczenia.settings.durationOption.500">Szybkie</option>
+                                    <option value="1000" selected data-i18n="cwiczenia.settings.durationOption.1000">Umiarkowane</option>
+                                    <option value="2000" data-i18n="cwiczenia.settings.durationOption.2000">Wolne</option>
+                                    <option value="losowo" data-i18n="common.generic.random">Losowo</option>
+                                </select>
+                            </div>
+                        </h4>
+                        <h4>
+                            <span data-i18n="cwiczenia.settings.instrument">Instrument:</span>
+                            <div class="select-wrapper">
+                                <select id="instrument">
+                                    <option value="piano" selected data-i18n="common.instruments.piano">Fortepian</option>
+                                    <option value="guitar-acoustic" data-i18n="common.instruments.guitarAcoustic">Gitara akustyczna</option>
+                                    <option value="guitar-electric" data-i18n="common.instruments.guitarElectric">Gitara elektryczna</option>
+                                    <option value="guitar-nylon" data-i18n="common.instruments.guitarNylon">Gitara klasyczna</option>
+                                    <option value="violin" data-i18n="common.instruments.violin">Skrzypce</option>
+                                    <option value="cello" data-i18n="common.instruments.cello">Wiolonczela</option>
+                                    <option value="flute" data-i18n="common.instruments.flute">Flet</option>
+                                    <option value="trumpet" data-i18n="common.instruments.trumpet">Trąbka</option>
+                                    <option value="saxophone" data-i18n="common.instruments.saxophone">Saksofon</option>
+                                    <option value="organ" data-i18n="common.instruments.organ">Organy</option>
+                                    <option value="harmonium" data-i18n="common.instruments.harmonium">Harmonium</option>
+                                    <option value="bass-electric" data-i18n="common.instruments.bassElectric">Bas elektryczny</option>
+                                    <option value="bassoon" data-i18n="common.instruments.bassoon">Fagot</option>
+                                    <option value="clarinet" data-i18n="common.instruments.clarinet">Klarnet</option>
+                                    <option value="contrabass" data-i18n="common.instruments.contrabass">Kontrabas</option>
+                                    <option value="french-horn" data-i18n="common.instruments.frenchHorn">Róg</option>
+                                    <option value="harp" data-i18n="common.instruments.harp">Harfa</option>
+                                    <option value="trombone" data-i18n="common.instruments.trombone">Puzon</option>
+                                    <option value="tuba" data-i18n="common.instruments.tuba">Tuba</option>
+                                    <option value="xylophone" data-i18n="common.instruments.xylophone">Ksylofon</option>
+                                    <option value="losowo" data-i18n="common.generic.random">Losowo</option>
+                                </select>
+                            </div>
+                        </h4>
+                        <h4>
+                            <span data-i18n="cwiczenia.settings.playMode">Tryb grania (nie dotyczy gam i skal):</span>
+                            <div class="select-wrapper">
+                                <select id="trybgrania">
+                                    <option value="melodicznie_gora" selected data-i18n="cwiczenia.settings.playModeOption.ascending">melodycznie w górę</option>
+                                    <option value="melodicznie_dol" data-i18n="cwiczenia.settings.playModeOption.descending">melodycznie w dół</option>
+                                    <option value="harmonicznie" data-i18n="cwiczenia.settings.playModeOption.harmonic">harmonicznie (razem)</option>
+                                    <option value="losowo" data-i18n="common.generic.random">Losowo</option>
+                                </select>
+                            </div>
+                        </h4>
+                        <h4 class="range-setting">
+                            <span data-i18n="cwiczenia.settings.range.label">Zakres:</span>
+                            <div class="range-wrapper">
+                                <div class="range-display" id="tone-range-display">C4 - C6</div>
+                                <div class="dual-range">
+                                    <input type="range" id="tone-range-min" value="0">
+                                    <input type="range" id="tone-range-max" value="0">
+                                </div>
+                            </div>
+                        </h4>
+                        <br>
+                        </div>
+
+                    <div class="game-step" id="step-selection">
+                        <h2 data-i18n="cwiczenia.selection.heading">Wybierz ćwiczenia</h2>
+                        <div class="test">
+
+                            <div class="category-group">
+                                <div class="category-header">
+                                    <h4 data-i18n="cwiczenia.selection.category.intervals">Interwały</h4>
+                                    <button class="category-toggle-btn" onclick="toggleCategory(this)" data-i18n="cwiczenia.category.selectAll">Zaznacz wszystkie</button>
+                                </div>
+                                <div class="category-buttons">
+                                    <div id="ukladacz">
+                                        <div class="przycisk-wyboru" data-id="1" onclick="toggleExercise(this)"><h3>1</h3></div>
+                                    </div>
+                                    <div id="ukladacz">
+                                        <div class="przycisk-wyboru" data-id="2" onclick="toggleExercise(this)"><h3>2></h3></div>
+                                        <div class="przycisk-wyboru" data-id="3" onclick="toggleExercise(this)"><h3>2</h3></div>
+                                    </div>
+                                    <div id="ukladacz">
+                                        <div class="przycisk-wyboru" data-id="4" onclick="toggleExercise(this)"><h3>3></h3></div>
+                                        <div class="przycisk-wyboru" data-id="5" onclick="toggleExercise(this)"><h3>3</h3></div>
+                                    </div>
+                                    <div id="ukladacz">
+                                        <div class="przycisk-wyboru" data-id="6" onclick="toggleExercise(this)"><h3>4</h3></div>
+                                        <div class="przycisk-wyboru" data-id="7" onclick="toggleExercise(this)"><h3>4<</h3></div>
+                                        <div class="przycisk-wyboru" data-id="8" onclick="toggleExercise(this)"><h3>5</h3></div>
+                                    </div>
+                                    <div id="ukladacz">
+                                        <div class="przycisk-wyboru" data-id="9" onclick="toggleExercise(this)"><h3>6></h3></div>
+                                        <div class="przycisk-wyboru" data-id="10" onclick="toggleExercise(this)"><h3>6</h3></div>
+                                    </div>
+                                    <div id="ukladacz">
+                                        <div class="przycisk-wyboru" data-id="11" onclick="toggleExercise(this)"><h3>7</h3></div>
+                                        <div class="przycisk-wyboru" data-id="12" onclick="toggleExercise(this)"><h3>7<</h3></div>
+                                    </div>
+                                    <div id="ukladacz">
+                                        <div class="przycisk-wyboru" data-id="13" onclick="toggleExercise(this)"><h3>8</h3></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="category-group">
+                                <div class="category-header">
+                                    <h4 data-i18n="cwiczenia.selection.category.complexIntervals">Interwały złożone</h4>
+                                    <button class="category-toggle-btn" onclick="toggleCategory(this)" data-i18n="cwiczenia.category.selectAll">Zaznacz wszystkie</button>
+                                </div>
+                                <div class="category-buttons">
+                                    <div id="ukladacz">
+                                        <div class="przycisk-wyboru" data-id="14" onclick="toggleExercise(this)"><h3>9></h3></div>
+                                        <div class="przycisk-wyboru" data-id="15" onclick="toggleExercise(this)"><h3>9</h3></div>
+                                    </div>
+                                    <div id="ukladacz">
+                                        <div class="przycisk-wyboru" data-id="16" onclick="toggleExercise(this)"><h3>10></h3></div>
+                                        <div class="przycisk-wyboru" data-id="17" onclick="toggleExercise(this)"><h3>10</h3></div>
+                                    </div>
+                                    <div id="ukladacz">
+                                        <div class="przycisk-wyboru" data-id="18" onclick="toggleExercise(this)"><h3>11</h3></div>
+                                        <div class="przycisk-wyboru" data-id="19" onclick="toggleExercise(this)"><h3>11<</h3></div>
+                                        <div class="przycisk-wyboru" data-id="20" onclick="toggleExercise(this)"><h3>12</h3></div>
+                                    </div>
+                                    <div id="ukladacz">
+                                        <div class="przycisk-wyboru" data-id="21" onclick="toggleExercise(this)"><h3>13></h3></div>
+                                        <div class="przycisk-wyboru" data-id="22" onclick="toggleExercise(this)"><h3>13</h3></div>
+                                    </div>
+                                    <div id="ukladacz">
+                                        <div class="przycisk-wyboru" data-id="23" onclick="toggleExercise(this)"><h3>14</h3></div>
+                                        <div class="przycisk-wyboru" data-id="24" onclick="toggleExercise(this)"><h3>14<</h3></div>
+                                    </div>
+                                    <div id="ukladacz">
+                                        <div class="przycisk-wyboru" data-id="25" onclick="toggleExercise(this)"><h3>15</h3></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="category-group">
+                                <div class="category-header">
+                                    <h4 data-i18n="cwiczenia.selection.category.triads">Trójdźwięki</h4>
+                                    <button class="category-toggle-btn" onclick="toggleCategory(this)" data-i18n="cwiczenia.category.selectAll">Zaznacz wszystkie</button>
+                                </div>
+                                <div class="category-buttons">
+                                    <div id="ukladacz">
+                                        <div class="przycisk-wyboru" data-id="26" onclick="toggleExercise(this)"><h3>+</h3></div>
+                                        <div class="przycisk-wyboru" data-id="27" onclick="toggleExercise(this)"><h3>+<br />3</h3></div>
+                                        <div class="przycisk-wyboru" data-id="28" onclick="toggleExercise(this)"><h3>+<br />5</h3></div>
+                                    </div>
+                                    <div id="ukladacz">
+                                        <div class="przycisk-wyboru" data-id="29" onclick="toggleExercise(this)"><h3>o</h3></div>
+                                        <div class="przycisk-wyboru" data-id="30" onclick="toggleExercise(this)"><h3>o<br />3</h3></div>
+                                        <div class="przycisk-wyboru" data-id="31" onclick="toggleExercise(this)"><h3>o<br />5</h3></div>
+                                    </div>
+                                    <div id="ukladacz">
+                                        <div class="przycisk-wyboru" data-id="32" onclick="toggleExercise(this)"><h3>></h3></div>
+                                        <div class="przycisk-wyboru" data-id="33" onclick="toggleExercise(this)"><h3>><br />3</h3></div>
+                                        <div class="przycisk-wyboru" data-id="34" onclick="toggleExercise(this)"><h3>><br />5</h3></div>
+                                    </div>
+                                    <div id="ukladacz">
+                                        <div class="przycisk-wyboru" data-id="35" onclick="toggleExercise(this)"><h3><</h3></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="category-group">
+                                <div class="category-header">
+                                    <h4 data-i18n="cwiczenia.selection.category.dominant7">Akordy D7</h4>
+                                    <button class="category-toggle-btn" onclick="toggleCategory(this)" data-i18n="cwiczenia.category.selectAll">Zaznacz wszystkie</button>
+                                </div>
+                                <div class="category-buttons">
+                                    <div id="ukladacz">
+                                        <div class="przycisk-wyboru" data-id="36" onclick="toggleExercise(this)"><h3>D<sup>7</sup></h3></div>
+                                    </div>
+                                    <div id="ukladacz">
+                                        <div class="przycisk-wyboru" data-id="37" onclick="toggleExercise(this)"><h3>D<sup>7</sup><br />3</h3></div>
+                                        <div class="przycisk-wyboru" data-id="38" onclick="toggleExercise(this)"><h3>D<sup>7</sup><br />5</h3></div>
+                                        <div class="przycisk-wyboru" data-id="39" onclick="toggleExercise(this)"><h3>D<sup>7</sup><br />7</h3></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="category-group">
+                                <div class="category-header">
+                                    <h4 data-i18n="cwiczenia.selection.category.dominant9">Akordy D9</h4>
+                                    <button class="category-toggle-btn" onclick="toggleCategory(this)" data-i18n="cwiczenia.category.selectAll">Zaznacz wszystkie</button>
+                                </div>
+                                <div class="category-buttons">
+                                    <div id="ukladacz">
+                                        <div class="przycisk-wyboru" data-id="40" onclick="toggleExercise(this)"><h3>D<sup>9></sup></h3></div>
+                                        <div class="przycisk-wyboru" data-id="41" onclick="toggleExercise(this)"><h3>D<sup>9</sup></h3></div>
+                                    </div>
+                                </div>
+                                </div>
+
+                                <div class="category-group">
+                                    <div class="category-header">
+                                        <h4 data-i18n="cwiczenia.selection.category.gamy">Gamy</h4>
+                                        <button class="category-toggle-btn" onclick="toggleCategory(this)" data-i18n="cwiczenia.category.selectAll">Zaznacz wszystkie</button>
+                                    </div>
+                                    <div class="category-buttons">
+                                            <div id="ukladacz">
+                                                <div class="przycisk-wyboru" data-id="42" onclick="toggleExercise(this)"><h3>Dur</h3></div>
+                                            </div>
+                                            <div id="ukladacz">
+                                                <div class="przycisk-wyboru" data-id="43" onclick="toggleExercise(this)"><h3>Moll naturalna</h3></div>
+                                                <div class="przycisk-wyboru" data-id="44" onclick="toggleExercise(this)"><h3>Moll harmoniczna</h3></div>
+                                                <div class="przycisk-wyboru" data-id="45" onclick="toggleExercise(this)"><h3>Moll melodyczna</h3></div>
+                                                <div class="przycisk-wyboru" data-id="46" onclick="toggleExercise(this)"><h3>Moll dorycka</h3></div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="category-group">
+                                        <div class="category-header">
+                                            <h4 data-i18n="cwiczenia.selection.category.scales">Skale</h4>
+                                            <button class="category-toggle-btn" onclick="toggleCategory(this)" data-i18n="cwiczenia.category.selectAll">Zaznacz wszystkie</button>
+                                        </div>
+                                        <div class="category-buttons">
+                                            <div id="ukladacz">
+                                                <div class="przycisk-wyboru" data-id="47" onclick="toggleExercise(this)"><h3>Jońska</h3></div>
+                                                <div class="przycisk-wyboru" data-id="48" onclick="toggleExercise(this)"><h3>Dorycka</h3></div>
+                                            </div>
+                                            <div id="ukladacz">
+                                                <div class="przycisk-wyboru" data-id="49" onclick="toggleExercise(this)"><h3>Frygijska</h3></div>
+                                                <div class="przycisk-wyboru" data-id="50" onclick="toggleExercise(this)"><h3>Lidyjska</h3></div>
+                                            </div>
+                                            <div id="ukladacz">
+                                                <div class="przycisk-wyboru" data-id="51" onclick="toggleExercise(this)"><h3>Miksolidyjska</h3></div>
+                                                <div class="przycisk-wyboru" data-id="52" onclick="toggleExercise(this)"><h3>Eolska</h3></div>
+                                            </div>
+                                            <div id="ukladacz">
+                                                <div class="przycisk-wyboru" data-id="53" onclick="toggleExercise(this)"><h3>Lokrycka</h3></div>
+                                                <div class="przycisk-wyboru" data-id="54" onclick="toggleExercise(this)"><h3>Góralska</h3></div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                <div style="height:25px;"></div>
+                        </div>
+                        </div>
+
+                    <div class="game-step" id="step-game" style="display:none;">
+                        <div class="test" id="game-buttons-container">
+                            </div>
+                    </div>
+
+                </div>
+                <div class="nawigacja-dolna" id="bottom-nav" style="display: none;">
+                    <button class="przycisk-nawigacji" id="goto-selection-btn" style="display: none;">
+                        <span class="button-text" data-i18n="common.buttons.next">Dalej</span> <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                    <button class="przycisk-nawigacji" id="start-game-btn" style="display: none;">
+                        <span class="button-text" data-i18n="common.buttons.start">Start</span> <i class="fa-solid fa-play"></i>
+                    </button>
+                </div>
+
+            </div> </section>
+    </main>
+
+    <div class="overlaya" id="feedback-modal" style="display: none;">
+        <div class="popup glass-popup">
+            <h2 id="popup-title" data-i18n="common.modal.resultTitle">Wynik</h2>
+            <div class="content" id="popup-body" data-i18n="common.modal.bodyPlaceholder">
+                Treść...
+            </div>
+            <div id="popup-countdown" style="display: none;"></div>
+            <button class="przycisk-nawigacji" id="popup-next-btn">
+                <span class="button-text" data-i18n="common.buttons.next">Dalej</span> <i class="fa-solid fa-arrow-right"></i>
+            </button>
+        </div>
+    </div>
+
+    <div class="overlaya" id="info-modal" style="display: none;">
+        <div class="popup glass-popup">
+            <h2 data-i18n="common.modal.infoTitle">Informacja</h2>
+            <a class="close" id="info-modal-close-btn" href="#">&times;</a>
+            <div class="content" id="info-modal-body" data-i18n="common.modal.bodyPlaceholder">
+                Treść...
+            </div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/tone"></script>
+    <script src="https://cdn.jsdelivr.net/gh/nbrosowsky/tonejs-instruments@master/Tonejs-Instruments.js"></script>
+    <script src="js/app/language.js?version=2"></script>
+    <script src="js/app/cwiczenia.js?version=2"></script>
+</body>
+</html>

@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <title data-i18n="dyktanda.title">Dyktanda muzyczne</title>
+    <meta name="theme-color" content="#92a8d1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta charset="utf-8">
+    <link rel="icon" type="image/x-icon" href="assets/icons/favicon.ico">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.1/css/all.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Music&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/app/dyktanda.css?version=1">
+</head>
+
+<body data-theme="light">
+
+    <div class="global-controls">
+        <a href="index.html" id="home-btn" title="Strona główna" data-i18n-attr="title:common.nav.homeTitle">
+            <i class="fa-solid fa-house"></i>
+        </a>
+        <button id="theme-toggle-btn" class="theme-toggle" type="button">
+            <i class="fa-solid fa-sun"></i>
+            <i class="fa-solid fa-moon"></i>
+        </button>
+    </div>
+
+    <main>
+        <div class="blob blob1"></div>
+        <div class="blob blob2"></div>
+
+        <section class="section section-1">
+            <div class="glass">
+
+                <div class="menu-cwiczen" id="game-menu" style="display: none;">
+                    <button class="menu-button" id="powtorz-btn">
+                        <i class="fa-solid fa-repeat"></i> <span class="button-label" data-i18n="common.buttons.repeat">Powtórz</span>
+                    </button>
+                    <button class="menu-button" id="sprawdz-btn">
+                        <i class="fa-solid fa-check"></i> <span class="button-label" data-i18n="common.buttons.check">Sprawdź</span>
+                    </button>
+                </div>
+
+                <div class="zakladka" id="steps-container">
+
+                    <div class="game-step" id="step-selection">
+                        <h2 data-i18n="dyktanda.selection.heading">Wybierz rodzaj dyktanda</h2>
+                        <div class="test">
+                            <div class="dictation-mode-wrapper">
+                                <button type="button" class="dictation-mode-btn" data-type="melodic" aria-pressed="false">
+                                    <span class="dictation-mode-title" data-i18n="dyktanda.selection.melodic.title">Melodyczne</span>
+                                    <span class="dictation-mode-desc" data-i18n="dyktanda.selection.melodic.desc">Ćwicz czytanie linii melodycznych.</span>
+                                </button>
+                                <button type="button" class="dictation-mode-btn" data-type="rhythmic" aria-pressed="false">
+                                    <span class="dictation-mode-title" data-i18n="dyktanda.selection.rhythmic.title">Rytmiczne</span>
+                                    <span class="dictation-mode-desc" data-i18n="dyktanda.selection.rhythmic.desc">Skup się tylko na rytmie, bez wysokości dźwięku.</span>
+                                </button>
+                            </div>
+                        </div>
+                        <select id="dictation-type-select" class="hidden-select" aria-hidden="true" tabindex="-1">
+                            <option value="melodic" selected data-i18n="dyktanda.selection.melodic.option">Dyktando melodyczne</option>
+                            <option value="rhythmic" data-i18n="dyktanda.selection.rhythmic.option">Dyktando rytmiczne</option>
+                        </select>
+                    </div>
+
+                    <div class="game-step" id="step-settings" style="display: none;">
+                        <h2 data-i18n="dyktanda.settings.heading">Ustawienia</h2>
+                        <br>
+                        <h4>
+                            <span data-i18n="dyktanda.settings.meter">Metrum:</span>
+                            <div class="select-wrapper">
+                                <select id="meter-select">
+                                    <option value="2/4">2/4</option>
+                                    <option value="3/4">3/4</option>
+                                    <option value="4/4" selected>4/4</option>
+                                </select>
+                            </div>
+                        </h4>
+                        <h4>
+                            <span data-i18n="dyktanda.settings.tempo">Tempo (BPM):</span>
+                            <div class="select-wrapper tempo-wrapper">
+                                <input id="tempo-input" type="number" min="40" max="200" step="5" value="100">
+                            </div>
+                        </h4>
+                        <h4>
+                            <span data-i18n="dyktanda.settings.instrument">Instrument:</span>
+                            <div class="select-wrapper">
+                                <select id="instrument-select">
+                                    <option value="piano" selected data-i18n="common.instruments.piano">Fortepian</option>
+                                    <option value="guitar-acoustic" data-i18n="common.instruments.guitarAcoustic">Gitara akustyczna</option>
+                                    <option value="guitar-electric" data-i18n="common.instruments.guitarElectric">Gitara elektryczna</option>
+                                    <option value="guitar-nylon" data-i18n="common.instruments.guitarNylon">Gitara klasyczna</option>
+                                    <option value="violin" data-i18n="common.instruments.violin">Skrzypce</option>
+                                    <option value="cello" data-i18n="common.instruments.cello">Wiolonczela</option>
+                                    <option value="flute" data-i18n="common.instruments.flute">Flet</option>
+                                    <option value="trumpet" data-i18n="common.instruments.trumpet">Trąbka</option>
+                                    <option value="saxophone" data-i18n="common.instruments.saxophone">Saksofon</option>
+                                    <option value="organ" data-i18n="common.instruments.organ">Organy</option>
+                                    <option value="harmonium" data-i18n="common.instruments.harmonium">Harmonium</option>
+                                    <option value="bass-electric" data-i18n="common.instruments.bassElectric">Bas elektryczny</option>
+                                    <option value="bassoon" data-i18n="common.instruments.bassoon">Fagot</option>
+                                    <option value="clarinet" data-i18n="common.instruments.clarinet">Klarnet</option>
+                                    <option value="contrabass" data-i18n="common.instruments.contrabass">Kontrabas</option>
+                                    <option value="french-horn" data-i18n="common.instruments.frenchHorn">Róg</option>
+                                    <option value="harp" data-i18n="common.instruments.harp">Harfa</option>
+                                    <option value="trombone" data-i18n="common.instruments.trombone">Puzon</option>
+                                    <option value="tuba" data-i18n="common.instruments.tuba">Tuba</option>
+                                    <option value="xylophone" data-i18n="common.instruments.xylophone">Ksylofon</option>
+                                </select>
+                            </div>
+                        </h4>
+                        <h4 data-mode="melodic">
+                            <span data-i18n="dyktanda.settings.keyMode">Tryb tonalny:</span>
+                            <div class="select-wrapper">
+                                <select id="key-mode-select">
+                                    <option value="major" selected data-i18n="dyktanda.settings.keyModeOption.major">Dur</option>
+                                    <option value="minor" data-i18n="dyktanda.settings.keyModeOption.minor">Mol</option>
+                                    <option value="atonal" data-i18n="dyktanda.settings.keyModeOption.atonal">Atonalnie</option>
+                                </select>
+                            </div>
+                        </h4>
+                        <h4>
+                            <span data-i18n="dyktanda.settings.length">Długość dyktanda:</span>
+                            <div class="select-wrapper">
+                                <select id="dictation-length-select">
+                                    <option value="2" data-i18n="dyktanda.settings.lengthOption.2">2 takty</option>
+                                    <option value="4" selected data-i18n="dyktanda.settings.lengthOption.4">4 takty</option>
+                                    <option value="8" data-i18n="dyktanda.settings.lengthOption.8">8 taktów</option>
+                                    <option value="16" data-i18n="dyktanda.settings.lengthOption.16">16 taktów</option>
+                                </select>
+                            </div>
+                        </h4>
+                    </div>
+
+                    <div class="game-step" id="step-game" style="display: none;">
+                        <div class="dyktando-toolbar">
+                            <div class="tool-group">
+                                <button class="tool-btn note-btn" data-duration="w">𝅝</button>
+                                <button class="tool-btn note-btn" data-duration="h">𝅗𝅥</button>
+                                <button class="tool-btn note-btn active" data-duration="q">𝅘𝅥</button>
+                                <button class="tool-btn note-btn" data-duration="8">𝅘𝅥𝅮</button>
+                                <button class="tool-btn" id="dot-toggle-btn" data-mode="dot" title="Nuty z kropką" data-i18n-attr="title:dyktanda.toolbar.dotted">•</button>
+                            </div>
+                            <div class="tool-group" data-role="accidentals">
+                                <button class="tool-btn" data-accidental="s">♯</button>
+                                <button class="tool-btn" data-accidental="f">♭</button>
+                                <button class="tool-btn" data-accidental="n">♮</button>
+                            </div>
+                            <div class="tool-group">
+                                <button class="tool-btn" id="rest-toggle-btn" data-mode="rest" title="Tryb pauz" data-i18n-attr="title:dyktanda.toolbar.rest">𝄽</button>
+                            </div>
+                            <div class="tool-group">
+                                <button class="tool-btn" id="eraser-btn" title="Gumka" data-i18n-attr="title:dyktanda.toolbar.eraser">
+                                    <i class="fa-solid fa-eraser"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="staff-wrapper">
+                            <div id="staff-stage">
+                                <div id="staff-canvas"></div>
+                                <div id="staff-hitbox-container"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="nawigacja-dolna" id="bottom-nav" style="display: none;">
+                    <button class="przycisk-nawigacji" id="goto-selection-btn" style="display: none;">
+                        <span class="button-text" data-i18n="common.buttons.next">Dalej</span> <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                    <button class="przycisk-nawigacji" id="start-game-btn" style="display: none;">
+                        <span class="button-text" data-i18n="common.buttons.start">Start</span> <i class="fa-solid fa-play"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div class="overlaya" id="feedback-modal" style="display: none;">
+        <div class="popup glass-popup">
+            <h2 id="popup-title" data-i18n="common.modal.resultTitle">Wynik</h2>
+            <div class="content" id="popup-body" data-i18n="common.modal.bodyPlaceholder">
+                Treść...
+            </div>
+            <button class="przycisk-nawigacji" id="popup-next-btn">
+                <span class="button-text" data-i18n="common.buttons.next">Dalej</span> <i class="fa-solid fa-arrow-right"></i>
+            </button>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/15.0.4/Tone.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/nbrosowsky/tonejs-instruments@master/Tonejs-Instruments.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/abcjs/6.2.0/abcjs-basic-min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vexflow@4.2.2/build/cjs/vexflow.js"></script>
+    <script src="js/app/language.js?version=1"></script>
+    <script src="js/app/dyktanda.js?version=1"></script>
+</body>
+</html>

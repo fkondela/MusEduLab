@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="index.title">MusEduLab - Strona Główna</title>
+    <meta name="description" content="Interaktywne ćwiczenia słuchowe i dyktanda online. Ćwicz interwały, akordy, gamy oraz twórz własne dyktanda z wyborem metrum, tempa i instrumentu." data-i18n-attr="content:index.metaDescription">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.1/css/all.css">
+    <link rel="stylesheet" href="css/app/index-style.css?version=1">
+    <link rel="icon" type="image/x-icon" href="assets/icons/favicon.ico">
+</head>
+<body data-theme="light">
+
+    <div class="global-controls">
+        <button id="theme-toggle-btn" class="theme-toggle" type="button">
+            <i class="fa-solid fa-sun"></i>
+            <i class="fa-solid fa-moon"></i>
+        </button>
+    <button class="language-toggle" type="button" data-language-toggle data-i18n-attr="title:common.nav.languageToggleTitle,aria-label:common.nav.languageToggleAria">
+            <span class="lang-label-full" data-i18n="common.nav.languageToggle">English</span>
+            <span class="lang-label-short" data-i18n="common.nav.languageToggleShort">ENG</span>
+        </button>
+    </div>
+
+    <div class="blob blob1"></div>
+    <div class="blob blob2"></div>
+    <div class="blob blob3"></div>
+
+    <header class="glass-header">
+        <div class="header-content">
+            <a href="index.html" class="logo-link">
+                <img src="assets/icons/icon-192.png" alt="MusEduLab logo" class="logo-icon" width="32" height="32">
+                <span data-i18n="common.brand">MusEduLab</span>
+            </a>
+        </div>
+    </header>
+
+    <main>
+
+        <section class="hero-section">
+            <div class="hero-content">
+
+                <div class="headphone-logo">
+                    <span class="liquid-line line1"></span>
+                    <span class="liquid-line line2"></span>
+                    <span class="liquid-line line3"></span>
+                    <span class="liquid-line line4"></span>
+                    <span class="liquid-line line5"></span>
+                </div>
+                <h1 data-i18n="index.hero.heading">Trenuj swój słuch muzyczny</h1>
+                <p class="subtitle" data-i18n="index.hero.subtitle">Interaktywne ćwiczenia i dyktanda online dla uczniów szkół muzycznych.</p>
+                <div class="cta-container">
+                    <a href="cwiczenia.html" class="cta-button">
+                        <i class="fa-solid fa-ear-listen"></i>
+                        <span data-i18n="index.hero.ctaExercises">Rozpocznij ćwiczenia</span>
+                    </a>
+                    <a href="dyktanda.html" class="cta-button">
+                        <i class="fa-solid fa-pen-ruler"></i>
+                        <span data-i18n="index.hero.ctaDictations">Spróbuj dyktand</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="about-section">
+            <div class="section-content reveal">
+                <h2 data-i18n="index.about.heading">Czym jest ten projekt?</h2>
+                <p data-i18n="index.about.body">
+                    Ucz się muzyki poprzez praktykę! Nasz system pozwala doskonalić słuch muzyczny, rozpoznawać interwały, trójdźwięki, dominanty septymowe, dominanty nonowe, gamy i skale, a także doskonalić umiejętności w pisaniu dyktand.
+                </p>
+            </div>
+        </section>
+
+        <section class="features-section">
+            <div class="section-content reveal">
+                <h2 data-i18n="index.features.heading">Wybierz swój tryb nauki</h2>
+                <div class="features-grid">
+                    <a href="cwiczenia.html" class="feature-card">
+                        <div class="card-border"></div>
+                        <div class="card-content">
+                            <i class="fa-solid fa-ear-listen"></i>
+                            <h3 data-i18n="index.features.exercise.title">Interaktywne ćwiczenia</h3>
+                            <p data-i18n="index.features.exercise.desc">Skup się na pojedynczych elementach. Ćwicz interwały, trójdźwięki, dominanty, gamy i skale we własnym tempie.</p>
+                        </div>
+                    </a>
+                    <a href="dyktanda.html" class="feature-card">
+                        <div class="card-border"></div>
+                        <div class="card-content">
+                            <i class="fa-solid fa-pen-ruler"></i>
+                            <h3 data-i18n="index.features.dictation.title">Generator dyktand</h3>
+                            <p data-i18n="index.features.dictation.desc">Przetestuj swoje umiejętności w praktyce. Wybierz metrum, tempo i instrument, a następnie zanotuj usłyszane melodie.</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="practice-details-section">
+            <div class="section-content reveal">
+                <h2 data-i18n="index.practice.heading">Co obejmują ćwiczenia?</h2>
+                <p style="margin-bottom: 50px;" data-i18n="index.practice.intro">Nasze ćwiczenia pozwalają rozpoznawać interwały, trójdźwięki, dominanty septymowe, dominanty nonowe, gamy i skale. Wybierz, co chcesz ćwiczyć i kliknij start.</p>
+                <div class="features-grid-small">
+                    <div class="feature-card">
+                        <div class="card-border"></div>
+                        <div class="card-content">
+                            <i class="fa-solid fa-align-justify"></i>
+                            <h3 data-i18n="index.practice.card1.title">Harmonicznie i melodycznie</h3>
+                            <p data-i18n="index.practice.card1.desc">Wybierz, czy dźwięki mają brzmieć razem, czy po kolei.</p>
+                        </div>
+                    </div>
+                    <div class="feature-card">
+                        <div class="card-border"></div>
+                        <div class="card-content">
+                            <i class="fa-solid fa-filter"></i>
+                            <h3 data-i18n="index.practice.card2.title">Zaawansowane ustawienia</h3>
+                            <p data-i18n="index.practice.card2.desc">Wybierz instrument i zakres dźwięków do swoich potrzeb.</p>
+                        </div>
+                    </div>
+                    <div class="feature-card">
+                        <div class="card-border"></div>
+                        <div class="card-content">
+                            <i class="fa-solid fa-gauge-high"></i>
+                            <h3 data-i18n="index.practice.card3.title">Kontrola tempa</h3>
+                            <p data-i18n="index.practice.card3.desc">Dostosuj tempo odtwarzania i instrument do swoich potrzeb.</p>
+                        </div>
+                    </div>
+                    <div class="feature-card">
+                        <div class="card-border"></div>
+                        <div class="card-content">
+                            <i class="fa-solid fa-layer-group"></i>
+                            <h3 data-i18n="index.practice.card4.title">Tryb mieszany</h3>
+                            <p data-i18n="index.practice.card4.desc">Łącz różne ćwiczenia, aby uzyskać dodatkowe wyzwania.</p>
+                        </div>
+                    </div>
+                </div>
+                <a href="cwiczenia.html" class="cta-button" style="margin-top: 50px;">
+                    <span data-i18n="index.practice.cta">Przejdź do ćwiczeń</span>
+                </a>
+            </div>
+        </section>
+
+        <section class="practice-details-section dictation-details-section">
+            <div class="section-content reveal">
+                <h2 data-i18n="index.dictation.heading">Co obejmują dyktanda?</h2>
+                <p style="margin-bottom: 50px;" data-i18n="index.dictation.intro">Wybierz parametry, a my przygotujemy dyktando dopasowane do Ciebie. Po sprawdzeniu podpowiemy, co warto poprawić.</p>
+                <div class="features-grid-small">
+                    <div class="feature-card">
+                        <div class="card-border"></div>
+                        <div class="card-content">
+                            <i class="fa-solid fa-sliders"></i>
+                            <h3 data-i18n="index.dictation.card1.title">Własne ustawienia</h3>
+                            <p data-i18n="index.dictation.card1.desc">Dostosuj metrum, tempo i długość dyktanda do swojego poziomu.</p>
+                        </div>
+                    </div>
+                    <div class="feature-card">
+                        <div class="card-border"></div>
+                        <div class="card-content">
+                            <i class="fa-solid fa-wave-square"></i>
+                            <h3 data-i18n="index.dictation.card2.title">Tonacje i rytm</h3>
+                            <p data-i18n="index.dictation.card2.desc">Generuj dyktanda rytmiczne i melodyczne w dowolnej tonacji.</p>
+                        </div>
+                    </div>
+                    <div class="feature-card">
+                        <div class="card-border"></div>
+                        <div class="card-content">
+                            <i class="fa-solid fa-drum"></i>
+                            <h3 data-i18n="index.dictation.card3.title">Wybór instrumentu</h3>
+                            <p data-i18n="index.dictation.card3.desc">Odtwarzaj dyktanda na pianinie, gitarze, skrzypcach i innych instrumentach.</p>
+                        </div>
+                    </div>
+                    <div class="feature-card">
+                        <div class="card-border"></div>
+                        <div class="card-content">
+                            <i class="fa-solid fa-pen-to-square"></i>
+                            <h3 data-i18n="index.dictation.card4.title">Zaawansowana edycja</h3>
+                            <p data-i18n="index.dictation.card4.desc">Wprowadzaj poprawki, analizuj błędy i zapisuj swoje dyktanda.</p>
+                        </div>
+                    </div>
+                </div>
+                <a href="dyktanda.html" class="cta-button" style="margin-top: 50px;">
+                    <span data-i18n="index.dictation.cta">Przejdź do dyktand</span>
+                </a>
+            </div>
+        </section>
+
+        <footer class="licence-footer">
+            <div class="licence-footer__content">
+                <strong>Wykorzystane biblioteki i licencje:</strong>
+                <span>Tone.js — MIT (Yotam Mann), Tonejs-Instruments — MIT; próbki © Nicholaus P. Brosowsky (CC BY 3.0), VexFlow — MIT, Font Awesome Free — CC BY 4.0 / SIL OFL 1.1 / MIT</span>
+            </div>
+        </footer>
+
+    </main>
+
+    <script src="js/app/language.js?version=1"></script>
+    <script src="js/app/index-script.js?version=1"></script>
+</body>
+</html>
